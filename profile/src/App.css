@@ -219,7 +219,7 @@ section {
 .icon {
   cursor: pointer;
   height: 2rem;
-  background-color:red !import;
+  /* background-color:red !import; */
 }
 
 

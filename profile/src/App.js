@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import './mediaqueries.css'
+
 
 import profilePic from './assets/8057863-removebg-preview.png';
 import aboutPic from './assets/node2.png';
@@ -11,13 +12,25 @@ import youtube from './assets/ytube.png'
 import post from './assets/post.png'
 import people from './assets/people-analyzing-growth-charts_23-2148866843.avif'
 import { motion } from 'framer-motion';
-import { FaLinkedin, FaGithub,FaEnvelope, FaYoutube } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope, FaYoutube, FaHamburger, FaHammer } from 'react-icons/fa';
 
 
+import { FaHtml5, FaBootstrap, FaReact, FaNode, FaGit } from "react-icons/fa6";
+import { SiCss3, SiMui, SiExpress, SiMysql } from "react-icons/si";
+import { TbBrandJavascript } from "react-icons/tb";
+import { DiMongodb } from "react-icons/di";
+import { BiLogoOpera } from "react-icons/bi";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 
 
 const App = () => {
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   return (
     <div>
@@ -34,28 +47,26 @@ const App = () => {
           </ul>
         </div>
       </nav>
+
       <nav id="hamburger-nav">
         <div class="logo">Web Developer</div>
         <div class="hamburger-menu">
-          <div class="hamburger-icon" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+          <div className={`hamburger-icon ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+            <GiHamburgerMenu />
           </div>
-          <div class="menu-links">
-            <li><a href="#about" onclick="toggleMenu()">About</a></li>
-            <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-            <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+          <div className={`menu-links ${menuOpen ? 'open' : ''}`}>
+            <li><a href="#about" onClick={toggleMenu}>About</a></li>
+            <li><a href="#experience" onClick={toggleMenu}>Experience</a></li>
+            <li><a href="#projects" onClick={toggleMenu}>Projects</a></li>
+            <li><a href="#contact" onClick={toggleMenu}>Contact</a></li>
           </div>
         </div>
       </nav>
-      {/* =========================profile============================== */}
+
+      {/* ==========================about me ======================= */}
+
 
       <section id="profile">
-
-
-
         <div class="section__text">
           <p class="section__text__p1">Hello, I'm</p>
           <h1 class="title">SRINU ORSU</h1>
@@ -64,34 +75,36 @@ const App = () => {
             <button
               className="btn btn-color-2"
               style={{ backgroundColor: '#4BA7F0' }}
-              onClick={() => window.open('https://drive.google.com/file/d/10Zlb_GOGYQDs63fg_8IzReWxqZTLHh9f/view?usp=sharing')}
+              onClick={() => window.open('https://drive.google.com/uc?export=download&id=1FPjWSpM2fWYawIbEU-EUwnOlLPU1rWyk')}
             >
               Download CV
             </button>
 
-            <button class="btn btn-color-1" onclick="location.href='./#contact'">
+
+
+            <button
+              className="btn btn-color-2"
+              type="button"
+              onClick={() => window.open('https://www.linkedin.com/in/srinu-orsu-0b877422a/')}>
               Contact Info
             </button>
+
           </div>
           <div id="socials-container">
             <a href='https://www.linkedin.com/in/srinu-orsu-0b877422a/' className='icon'><FaLinkedin className='icon' style={{ color: "#1e53ae", fontSize: "2em" }} /></a>
             <a href='https://github.com/developersrinu' className='icon'><FaGithub style={{ color: "#1e53ae", fontSize: "2em" }} /></a>
             <a href='mailto:orsusrinu606@gmail.com' className='icon'>
-              <FaEnvelope  style={{ color: "#1e53ae", fontSize: "2em" }} />
+              <FaEnvelope style={{ color: "#1e53ae", fontSize: "2em" }} />
             </a>
-            <a href='https://github.com/developersrinu' className='icon'><FaYoutube style={{ color: "#1e53ae", fontSize: "2em" }} /></a>
-
+            <a href='https://www.youtube.com/channel/UCzHzmvgbEcOM3komMTYUc2g' className='icon'><FaYoutube style={{ color: "#1e53ae", fontSize: "2em" }} /></a>
           </div>
 
         </div>
 
-        <motion.div class="section__pic-container"
+        <motion.div className="section__pic-container" id='pic-container33'
 
           animate={{ rotate: 360 }}
-          transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-
-
-
+          transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
         >
           <img src={profilePic} alt="John Doe profile picture" />
         </motion.div>
@@ -127,19 +140,21 @@ const App = () => {
               </div>
             </div>
             <div class="text-container">
-              <p>
-                Versatile Web developer skilled in JavaScript, React, Node.js, HTML, CSS, and Bootstrap. Proven track record in delivering top-notch web applications with a focus on intuitive user experiences and optimization techniques. Collaborative approach with designers and back-end developers, adept at writing clean and efficient code. Experienced in troubleshooting front-end issues, participating in code reviews, and contributing to continuous improvement. Currently exploring Next.js with Tailwind CSS for enhanced project capabilities.Additionally, I am proficient in creating REST APIs,
+              <p style={{ whiteSpace: "normal" }}>
+                As a versatile web developer, I am proficient in JavaScript, React, Node.js, HTML, CSS, and Bootstrap.
+                I have a proven track record of delivering top-notch web applications with a strong focus on intuitive user experiences and optimization techniques.
+                My collaborative approach extends to working with designers and back-end developers, and I am adept at writing clean and efficient code.
+                I have hands-on experience in troubleshooting front-end issues, actively participating in code reviews, and contributing to continuous improvement processes.
+                Currently, I am exploring Next.js with Tailwind CSS to enhance project capabilities. Additionally, I am skilled in creating RESTful APIs.
               </p>
+
             </div>
           </div>
         </div>
-        <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='./#experience'"
-        />
+
       </section>
+
+      {/* ==========================Exprerience ======================= */}
       <section id="experience">
         <p class="section__text__p1">Explore My</p>
         <h1 class="title">Experience</h1>
@@ -149,130 +164,166 @@ const App = () => {
               <h2 class="experience-sub-title">Frontend Development</h2>
               <div class="article-container">
                 <article>
-                  <img
+                  {/* <img
                     src="./assets/checkmark.png"
                     alt="Experience icon"
                     class="icon"
-                  />
+                  /> */}
+                  <FaHtml5 className='icon1' />
                   <div>
                     <h3>HTML</h3>
                     <p>Experienced</p>
                   </div>
                 </article>
                 <article>
-                  <img
+                  {/* <img
                     src="./assets/checkmark.png"
                     alt="Experience icon"
                     class="icon"
-                  />
+                  /> */}
+                  <SiCss3 className='icon1' />
                   <div>
                     <h3>CSS</h3>
                     <p>Experienced</p>
                   </div>
                 </article>
                 <article>
-                  <img
+                  {/* <img
                     src="./assets/checkmark.png"
                     alt="Experience icon"
                     class="icon"
-                  />
+                  /> */}
+                  <FaBootstrap className='icon1' />
                   <div>
-                    <h3>SASS</h3>
-                    <p>Intermediate</p>
+                    <h3>Bootstrap</h3>
+                    <p>Experienced</p>
                   </div>
                 </article>
                 <article>
-                  <img
+                  {/* <img
                     src="./assets/checkmark.png"
                     alt="Experience icon"
                     class="icon"
-                  />
+                  /> */}
+                  <TbBrandJavascript className='icon1' />
                   <div>
                     <h3>JavaScript</h3>
-                    <p>Basic</p>
+                    <p>Experienced</p>
                   </div>
                 </article>
                 <article>
-                  <img
+                  {/* <img
                     src="./assets/checkmark.png"
                     alt="Experience icon"
                     class="icon"
-                  />
+                  /> */}
+                  <SiMui className='icon1' />
                   <div>
-                    <h3>TypeScript</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Material UI</h3>
+                    <h3>Metrial UI</h3>
                     <p>Intermediate</p>
+                  </div>
+                </article>
+                <article>
+                  {/* <img
+                    src="./assets/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  /> */}
+                  <FaReact className='icon1' />
+                  <div>
+                    <h3>React</h3>
+                    <p>Experienced</p>
                   </div>
                 </article>
               </div>
             </div>
             <div class="details-container">
-              <h2 class="experience-sub-title">Frontend Development</h2>
+              <h2 class="experience-sub-title">Backend Development</h2>
               <div class="article-container">
                 <article>
-                  <img
+                  {/* <img
                     src="./assets/checkmark.png"
                     alt="Experience icon"
                     class="icon"
-                  />
+                  /> */}
+                  <DiMongodb className='icon1' />
                   <div>
-                    <h3>PostgreSQL</h3>
-                    <p>Basic</p>
+                    <h3>MongoDB</h3>
+                    <p>experienced</p>
                   </div>
                 </article>
                 <article>
-                  <img
+                  {/* <img
                     src="./assets/checkmark.png"
                     alt="Experience icon"
                     class="icon"
-                  />
+                  /> */}
+                  <FaNode className='icon1' />
                   <div>
                     <h3>Node JS</h3>
-                    <p>Intermediate</p>
+                    <p>Experienced</p>
                   </div>
                 </article>
                 <article>
-                  <img
+                  {/* <img
                     src="./assets/checkmark.png"
                     alt="Experience icon"
                     class="icon"
-                  />
+                  /> */}
+                  <SiExpress className='icon1' />
                   <div>
                     <h3>Express JS</h3>
-                    <p>Intermediate</p>
+                    <p>Experienced</p>
                   </div>
                 </article>
                 <article>
-                  <img
+                  {/* <img
                     src="./assets/checkmark.png"
                     alt="Experience icon"
                     class="icon"
-                  />
+                  /> */}
+                  <FaGithub className='icon1' />
                   <div>
-                    <h3>Git</h3>
-                    <p>Intermediate</p>
+                    <h3>Github</h3>
+                    <p>Experienced</p>
                   </div>
                 </article>
+
+                <article>
+                  {/* <img
+                    src="./assets/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  /> */}
+                  <SiMysql className='icon1' />
+                  <div>
+                    <h3>Sql</h3>
+                    <p>Baiscs</p>
+                  </div>
+                </article>
+
+
+
+
+                <article>
+                  {/* <img
+                    src="./assets/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  /> */}
+                  <BiLogoOpera className='icon1' />
+                  <div>
+                    <h3>Oops</h3>
+                    <p>Experienced</p>
+                  </div>
+                </article>
+
+
               </div>
             </div>
           </div>
         </div>
-        <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='./#projects'"
-        />
+
       </section>
 
 
@@ -388,12 +439,12 @@ const App = () => {
               <h2 class="experience-sub-title project-title">GitRepo Explorer frontend application</h2>
               <div class="btn-container">
                 <button class="btn btn-color-2 project-btn">
-                  <a href='https://github.com/developersrinu/frontend-blogify' target="_blank" rel="noopener noreferrer">
+                  <a href='https://github.com/developersrinu/intern-assessment' target="_blank" rel="noopener noreferrer">
                     Github
                   </a>
                 </button>
                 <button class="btn btn-color-2 project-btn">
-                  <a href='https://frontend3-olive.vercel.app' target="_blank" rel="noopener noreferrer">
+                  <a href='https://tiny-starburst-1f35da.netlify.app/' target="_blank" rel="noopener noreferrer">
                     Live Demo
                   </a>
                 </button>
@@ -431,32 +482,22 @@ const App = () => {
 
           </div>
         </div>
-        <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='./#contact'"
-        />
+
       </section>
+
+
+
       <section id="contact">
         <p class="section__text__p1">Get in Touch</p>
         <h1 class="title">Contact Me</h1>
         <div class="contact-info-upper-container">
           <div class="contact-info-container">
-            <img
-              src="./assets/email.png"
-              alt="Email icon"
-              class="icon contact-icon email-icon"
-            />
-            <p><a href="mailto:examplemail@gmail.com">Example@gmail.com</a></p>
+            <FaEnvelope />
+            <p><a href="mailto:orsusrinu606@gmail.com">orsusrinu606@gmail.com</a></p>
           </div>
-          <div class="contact-info-container">
-            <img
-              src="./assets/linkedin.png"
-              alt="LinkedIn icon"
-              class="icon contact-icon"
-            />
-            <p><a href="https://www.linkedin.com">LinkedIn</a></p>
+          <div class="contact-info-container" style={{ margin: '0 2px' }}>
+            <FaLinkedin />
+            <p><a href='https://www.linkedin.com/in/srinu-orsu-0b877422a/'>LinkedIn</a></p>
           </div>
         </div>
       </section>
@@ -471,9 +512,9 @@ const App = () => {
             </ul>
           </div>
         </nav>
-        <p>Copyright &#169; 2023 John Doe. All Rights Reserved.</p>
+        <p>Copyright &#169; 2024 srinu orsu. All Rights Reserved.</p>
       </footer>
-    </div>
+    </div >
   )
 }
 
